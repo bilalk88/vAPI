@@ -192,10 +192,11 @@ def create_user():
 
 
 @route('/whoami', method='GET')
-@route('/whoami/<flag>', method='GET')
+#@route('/whoami/<flag>', method='GET')
+@route('/whoami/<id>', method='GET')
 def display_uptime(flag=None):
     if flag:
-        command = "whoami -" + flag
+        command = "whoami -" + id
     else:
         command = "whoami"
     output = os.popen(command).read()
