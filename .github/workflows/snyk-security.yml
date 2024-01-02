@@ -8,7 +8,7 @@ jobs:
       - name: Debug Info
         run: |
           echo "SNYK_TOKEN: $SNYK_TOKEN"
-          echo "Environment variables: $(printenv)"
+          echo "SNYK_TOKEN variables: ${{ secrets.SNYK_TOKEN }}"
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
