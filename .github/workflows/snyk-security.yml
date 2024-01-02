@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Debug Info
+        run: |
+          echo "SNYK_TOKEN: $SNYK_TOKEN"
+          echo "Environment variables: $(printenv)"
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
