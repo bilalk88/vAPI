@@ -9,9 +9,11 @@ jobs:
         uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-      - name: Run Snyk to check for vulnerabilities
-        run: |
-          npx snyk auth ${{ secrets.SNYK_TOKEN }}
-          npx snyk test --all-projects
-
-      
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+      - name: Authenticate Snyk
+        run: npx snyk auth ${{ secrets.SNYK_TOKEN }}
+      - name: Authenticate Snyk1
+        run: npx snyk auth ${{ SNYK_TOKEN }}
+      - name: Run Snyk Security Scan
+        run: npx snyk test --all-projects
